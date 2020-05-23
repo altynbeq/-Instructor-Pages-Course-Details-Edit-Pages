@@ -42,23 +42,27 @@
           </div>
         </div>
       </div>
+      </div>
       <div *ngIf="sections.length > 0">
         <div class="form-group">
           <div class="text-center">
-            <button type="button" class="btn btn-primary mb-2" (click)="openModal(remindStudentsModal)" value="Remind Students to Join">
-              <i class="fa fa-envelope"></i>
+            <button type="button" class="btn btn-primary mb-2" (click)="openModal(remindStudentsModal)" value="Remind Students to Join"
+            style="font-size:0.700em; margin-top:5px; margin-bottom:5px;">
+              <i class="fa fa-download"></i>
               Remind Students to Join
             </button>
-            <button type="button" class="btn btn-primary mb-2" (click)="downloadAllStudentsFromCourse(courseDetails.course.courseId)">
+            <button type="button" class="btn btn-primary mb-2" (click)="downloadAllStudentsFromCourse(courseDetails.course.courseId)"
+            style="font-size:0.700em; margin-top:5px; margin-bottom:5px; min-width:25px;">
               <i class="fa fa-download"></i>
               Download Student List
             </button>
-            <button type="button" class="btn btn-danger mb-2" (click)="openModal(deleteAllStudentsModal)" value="Delete All Students">
-              <i class="fa fa-trash"></i>
+            <button type="button" class="btn btn-primary mb-2" (click)="openModal(deleteAllStudentsModal)" value="Delete All Students"
+            style="font-size:0.700em; margin-top:5px; margin-bottom:5px;">
+              <i class="fa fa-download"></i>
               Delete All Students
             </button>
             <div>
-              <span>Non-English characters not displayed properly in the downloaded file?
+              <span>Non-English characters not displayed properly in the downloaded file? Remind Students to Join
                 <span class="btn-link" (click)="openModal(studentTableModal); loadStudentsListCsv(courseDetails.course.courseId)">
                   Click here.
                 </span>
@@ -67,8 +71,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
   <div *ngIf="sections.length === 0, else studentListTable" class="alert alert-warning">
     <i class="fa fa-exclamation-circle text-muted"></i>
     There are no students in this course. Click
@@ -88,8 +90,8 @@
   <ng-template #remindStudentsModal let-modal>
     <div class="modal-header alert-info">
       <i class="fa fa-info-circle fa-2x"></i>
-      <h4 class="modal-title">Confirm sending join requests</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">&times;</button>
+      <h4 class="modal-title" style="font-size:0.900em; margin-top:5px; margin-bottom:5px;">Confirm sending join requests</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()"  style="margin-bottom:2px;" >&times;</button>
     </div>
     <div class="modal-body">
       Usually, there is no need to use this feature because TEAMMATES sends an automatic invite to students at the opening
@@ -97,22 +99,25 @@
       <br>
     </div>
     <div class="modal-footer">
-      <button type="button" class="modal-btn-cancel btn-lg btn-default" (click)="modal.dismiss()">No, cancel the operation</button>
-      <button type="button" class="modal-btn-ok btn-lg btn-danger" (click)="remindAllStudentsFromCourse(courseDetails.course.courseId); modal.dismiss()">Yes</button>
+      <button type="button" class="modal-btn-cancel btn-lg btn-default" (click)="modal.dismiss()"
+      style="font-size:0.700em; margin-top:5px; margin-bottom:5px;">No, cancel the operation</button>
+      <button type="button" class="modal-btn-ok btn-lg btn-danger" (click)="remindAllStudentsFromCourse(courseDetails.course.courseId); modal.dismiss()"
+      style="font-size:0.700em; margin-top:5px; margin-bottom:5px;">Yes</button>
     </div>
   </ng-template>
   <ng-template #deleteAllStudentsModal let-modal>
     <div class="modal-header alert-danger">
       <i class="fa fa-times-circle fa-2x"></i>
-      <h4 class="modal-title">Confirm Deletion</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">&times;</button>
+      <h4 class="modal-title" style="font-size:0.900em; margin-top:4px; margin-bottom:2px;">Confirm Deletion</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()" style="margin-bottom:2px;">&times;</button>
     </div>
     <div class="modal-body">
       Are you sure you want to remove all students from the course {{courseDetails.course.courseId}}?
       <br>
     </div>
     <div class="modal-footer">
-      <button type="button" class="modal-btn-cancel btn-lg btn-default" (click)="modal.dismiss()">No, cancel the operation</button>
+      <button type="button" class="modal-btn-cancel btn-lg btn-default" (click)="modal.dismiss()"
+      style="font-size:0.700em; margin-top:5px; margin-bottom:5px;">No, cancel the operation</button>
       <button type="button" class="modal-btn-ok btn-lg btn-danger" (click)="deleteAllStudentsFromCourse(courseDetails.course.courseId); modal.dismiss()">Yes</button>
     </div>
   </ng-template>
@@ -122,6 +127,7 @@
         Tips: <span class="btn-link" (click)="copyContent(courseStudentListAsCsv)">Click here</span>
         to copy the table, then <kbd>Ctrl + V</kbd> or <kbd>⌘ + V</kbd> to PASTE to your Excel Workbook.
       </span>
+      <br>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
